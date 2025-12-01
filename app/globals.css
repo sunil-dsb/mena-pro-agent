@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@utility bg-figma-linear {
-  background: linear-gradient(to bottom, #e9f5ff 0%, #6393db 86%, #0b53c4 100%);
-}
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap'); */
 
 :root {
   /* Base Colors */
