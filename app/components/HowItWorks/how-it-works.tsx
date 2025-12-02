@@ -47,7 +47,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section ref={ref} className="bg-[#e8f4fc] py-20">
+    <section ref={ref} className="bg-primary-100 py-20">
       <div className="container-m3">
         {/* Heading */}
         <div className="text-center mb-8">
@@ -55,7 +55,7 @@ const HowItWorks = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#030967] font-primary mb-4"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-800 font-primary mb-4"
           >
             Your Property Journey with a MenaPro Agent
           </motion.h2>
@@ -76,7 +76,7 @@ const HowItWorks = () => {
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            className="hidden lg:block absolute h-0.5 bg-[#062696] origin-left"
+            className="hidden lg:block absolute h-0.5 bg-primary-700 origin-left"
             style={{ top: "16px", left: "12.5%", width: "75%" }}
           ></motion.div>
 
@@ -91,7 +91,7 @@ const HowItWorks = () => {
                 initial={{ scale: 0 }}
                 animate={isInView ? { scale: 1 } : { scale: 0 }}
                 transition={{ duration: 0.4, delay: 0.6 + index * 0.1, ease: "easeOut" }}
-                className="w-4 h-4 rounded-full bg-[#062696] -translate-y-1/2"
+                className="w-4 h-4 rounded-full bg-primary-700 -translate-y-1/2"
               ></motion.div>
             ))}
           </div>
@@ -101,9 +101,9 @@ const HowItWorks = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ duration: 0.5, delay: 0.8 + index * 0.1, ease: "easeOut" }}
-              className="bg-transparent rounded-lg p-6 border-[1.4px] border-[#3ca4f7]"
+              className="bg-transparent rounded-lg p-6 border-[1.4px] border-active"
             >
-              <h3 className="text-base font-semibold text-[#030967] font-primary mb-4">
+              <h3 className="text-base font-semibold text-primary-800 font-primary mb-4">
                 {step.title}
               </h3>
               <ul className="flex flex-col gap-3">
@@ -117,7 +117,7 @@ const HowItWorks = () => {
                         height="16"
                       />
                     </span>
-                    <span className="text-xs text-[#111827] font-primary leading-snug">
+                    <span className="text-xs text-base-text font-primary leading-snug">
                       {point}
                     </span>
                   </li>
@@ -129,7 +129,7 @@ const HowItWorks = () => {
 
         {/* CTA Button */}
         <div className="text-center">
-          <button className="bg-[#030967] text-[#fdfdff] px-4 py-2 rounded-md font-primary font-semibold hover:bg-[#062696] hover:scale-95 transition-all duration-300 text-base">
+          <button className="bg-primary-800 text-base-white px-4 py-2 rounded-md font-primary font-semibold hover:bg-primary-700 hover:scale-95 transition-all duration-300 text-base">
             Find Mena Pro Agents
           </button>
         </div>

@@ -108,7 +108,7 @@ export const Card = memo<CardProps>(
         onMouseMove={handleMouseMove}
         className={`relative w-32 h-44 sm:w-40 sm:h-56 md:w-48 md:h-64 lg:w-52 lg:h-64
          rounded-2xl overflow-visible
-          border border-[#d1d5db] cursor-none shrink-0 will-change-transform ${transitionClass}
+          border border-default cursor-none shrink-0 will-change-transform ${transitionClass}
           ${
             !loaded
               ? "opacity-0 translate-y-32 scale-90 rotate-0"
@@ -128,7 +128,7 @@ export const Card = memo<CardProps>(
         {/* Media Layer */}
         <div
           className={`w-full h-full relative group overflow-hidden rounded-2xl pointer-events-none border-4 transition-colors duration-300 ${
-            isHovered ? "border-[#3ca4f7]" : "border-[#d1d5db]"
+            isHovered ? "border-active" : "border-default"
           }`}
         >
           <img

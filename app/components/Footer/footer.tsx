@@ -57,7 +57,7 @@ export default function Footer() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-3xl md:text-4xl font-semibold text-[#fdfdff] font-primary mb-3"
+            className="text-3xl md:text-4xl font-semibold text-base-white font-primary mb-3"
           >
             Become a MenaPro Agent
           </motion.h2>
@@ -65,7 +65,7 @@ export default function Footer() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-            className="text-3xl md:text-4xl font-semibold text-[#fdfdff] font-primary mb-6"
+            className="text-3xl md:text-4xl font-semibold text-base-white font-primary mb-6"
           >
             Stand Out in the UAE Market
           </motion.h2>
@@ -73,7 +73,7 @@ export default function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="text-base text-[#fdfdff] font-primary max-w-3xl mx-auto opacity-85 leading-relaxed font-normal"
+            className="text-base text-base-white font-primary max-w-3xl mx-auto opacity-85 leading-relaxed font-normal"
           >
             Are you a RERA-certified agent who&apos;s tired of competing with
             unreliable competitors? Earn the MenaPro badge and get recognized
@@ -89,7 +89,7 @@ export default function Footer() {
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
               transition={{ duration: 0.5, delay: 0.5 + index * 0.1, ease: "easeOut" }}
-              className="agent-card relative border-4 border-[#0b53c4] rounded-2xl overflow-visible"
+              className="agent-card relative border-4 border-primary-600 rounded-2xl overflow-visible"
               style={{
                 boxShadow: `
       0px 0px 80px rgba(99,147,219,0.35),
@@ -120,7 +120,7 @@ export default function Footer() {
 
         {/* CTA Button */}
         <div className="text-center">
-          <button className="bg-[#fdfdff] text-[#050017] px-6 py-3 rounded-md font-primary font-semibold hover:bg-[#e9f5ff] hover:scale-95 transition-all duration-300  text-sm">
+          <button className="bg-base-white text-base-black px-6 py-3 rounded-md font-primary font-normal hover:bg-primary-100 hover:scale-95 transition-all duration-300 text-sm">
             Get started 🚀
           </button>
         </div>

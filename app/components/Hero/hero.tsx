@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,#E9F5FF_0%,rgba(99,147,219,0.75)_60%,rgba(11,83,196,0.15)_100%)] z-0"></div>
 
       {/* White Overlay - Bottom 50% */}
-      <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[#fdfdff] z-[1]"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-base-white z-[1]"></div>
 
       {/* Navbar - Above gradient */}
       <div className="relative z-10">
@@ -26,7 +26,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-4xl md:text-5xl font-bold text-[#030967] font-primary mb-3"
+            className="text-4xl md:text-5xl font-bold text-primary-800 font-primary mb-3"
           >
             Meet MenaPro Agents
           </motion.h1>
@@ -34,7 +34,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-xl md:text-2xl font-primary text-[#030967] font-medium mb-4"
+            className="text-xl md:text-2xl font-primary text-primary-800 font-medium mb-4"
           >
             The trusted <span className="font-semibold">experts</span> who turn
             your <span className="font-semibold">UAE property</span> dreams into
@@ -44,7 +44,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            className="max-w-160 mx-auto text-base text-[#111827] font-primary leading-snug"
+            className="max-w-160 mx-auto text-base text-base-text font-primary leading-snug"
           >
             No more chasing agents. No more fake listings. No more wondering if
             you can trust the person on the other end. MenaPro Agents are the
@@ -62,7 +62,7 @@ export default function Hero() {
           <p className="font-primary font-semibold text-2xl">
             Real listings. Fast replies. Agents you can count on.
           </p>
-          <button className="bg-[#030967] text-[#fdfdff] px-4 py-2 rounded-md font-primary font-semibold hover:bg-[#062696] hover:scale-95 transition-all duration-300  text-base">
+          <button className="bg-primary-800 text-base-white px-4 py-2 rounded-md font-primary font-semibold hover:bg-primary-700 hover:scale-95 transition-all duration-300  text-base">
             Find Mena Pro Agents
           </button>
         </div>

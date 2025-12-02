@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-[#05001759] text-[#fdfdff] font-primary text-base font-semibold">
+    <nav className="bg-base-black-35 text-base-white font-primary text-base font-semibold">
       <div className="container-m3">
         <div className="flex items-center justify-between py-3">
           <div className="flex gap-6">
@@ -35,7 +35,7 @@ const Navbar = () => {
                 Residential
               </li>
 
-              <li className="bg-[#e9f5ff4d] rounded-md h-10 px-4 py-2 cursor-pointer flex items-center transition-all duration-300 hover:bg-[#e9f5ff33] border-active border border-transparent hover:border-white">
+              <li className="bg-primary-100-30 rounded-md h-10 px-4 py-2 cursor-pointer flex items-center transition-all duration-300 hover:bg-[#e9f5ff33] border border-transparent hover:border-[#fdfdff]">
                 Commercial
               </li>
 
@@ -43,7 +43,7 @@ const Navbar = () => {
                 Find Agent
               </li>
 
-              <button className="border border-white hover:border-primary-600 rounded-md px-4 py-2 cursor-pointer hover:scale-95 transition-all duration-300 hover:bg-[#e9f5ff33]">
+              <button className="border border-base-white hover:border-[#3ca4f7] rounded-md px-4 py-2 cursor-pointer hover:scale-95 transition-all duration-300">
                 Log in
               </button>
             </ul>
@@ -78,11 +78,11 @@ const Navbar = () => {
         >
           <ul className="flex flex-col gap-4">
             <li className="cursor-pointer py-2">Residential</li>
-            <li className="bg-[#e9f5ff4d] rounded-md px-4 py-3 cursor-pointer">
+            <li className="bg-primary-100-30 rounded-md px-4 py-3 cursor-pointer">
               Commercial
             </li>
             <li className="cursor-pointer py-2">Find Agent</li>
-            <button className="border border-white rounded-md px-4 py-3 cursor-pointer text-center">
+            <button className="border border-base-white rounded-md px-4 py-3 cursor-pointer text-center">
               Log in
             </button>
           </ul>
