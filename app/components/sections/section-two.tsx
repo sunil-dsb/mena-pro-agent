@@ -60,7 +60,7 @@ const SectionTwo = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-        className="text-base text-center text-base-text font-primary max-w-3xl mx-auto opacity-85 leading-relaxed font-normal"
+        className="text-lg text-center text-base-text font-primary max-w-5xl mx-auto opacity-85 leading-relaxed font-normal"
       >
         Finding property in the UAE shouldn&apos;t mean dealing with ghosting
         agents, outdated listings, or last-minute cancellations. That&apos;s why
@@ -135,8 +135,9 @@ const SectionTwo = () => {
       </div>
       <div className="text-center mt-16">
         <p className="text-bg-base-black text-xl md:text-2xl font-semibold">
-          Some agents just do it right.
-          <span className="text-primary-800">MenaPro</span> helps you find them.
+          Some agents just do it right.{" "}
+          <span className="text-primary-800 ml-1">MenaPro</span> helps you find
+          them.
         </p>
       </div>
     </section>

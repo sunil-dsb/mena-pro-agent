@@ -46,7 +46,7 @@ const SectionThree = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="text-md text-text-base-text"
+          className="text-lg text-text-base-text"
         >
           MenaPro isn&apos;t just a badge it&apos;s proof that an agent
           consistently delivers the kind of service that makes
@@ -55,7 +55,7 @@ const SectionThree = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          className="text-md text-text-base-text"
+          className="text-lg text-text-base-text"
         >
           your property search actually enjoyable.
         </motion.p>
@@ -64,8 +64,8 @@ const SectionThree = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-14">
         <div className="flex flex-col gap-4">
           {features.map((feature) => (
-            <div key={feature.title} className="bg-base-grey p-10 rounded-lg">
-              <h3 className="text-primary-800 mb-3 font-semibold">
+            <div key={feature.title} className="bg-base-grey p-8 rounded-lg">
+              <h3 className="text-primary-800 mb-3 font-semibold text-lg">
                 {feature.title}
               </h3>
               <p className="text-base-text">{feature.description}</p>
