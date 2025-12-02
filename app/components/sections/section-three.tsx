@@ -1,6 +1,8 @@
-import React from "react";
+"use client";
+import { useRef } from "react";
 import group from "../../../public/images/group.svg";
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
 
 const features = [
   {
@@ -25,24 +27,42 @@ const features = [
   },
 ];
 
-const sectionThree = () => {
+const SectionThree = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section className="my-24 max-w-5xl mx-auto container-m3">
-      <h1 className="text-primary-800 font-bold text-center text-[30px] text-shadow-[1px_2px_2px_0px_rgba(56,78,113,45)]">
+    <section ref={ref} className="my-24 max-w-5xl mx-auto container-m3">
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="text-primary-800 font-bold text-center text-[30px] text-shadow-[1px_2px_2px_0px_rgba(56,78,113,45)] mb-2"
+      >
         How MenaPro Agents Make Everything Easier
-      </h1>
+      </motion.h1>
       <div className="text-center">
-        <p className="text-md text-text-base-text">
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="text-md text-text-base-text"
+        >
           MenaPro isn&apos;t just a badge it&apos;s proof that an agent
           consistently delivers the kind of service that makes
-        </p>
-        <p className="text-md text-text-base-text">
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          className="text-md text-text-base-text"
+        >
           your property search actually enjoyable.
-        </p>
+        </motion.p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-14">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
           {features.map((feature) => (
             <div key={feature.title} className="bg-base-grey p-10 rounded-lg">
               <h3 className="text-primary-800 mb-3 font-semibold">
@@ -75,4 +95,4 @@ const sectionThree = () => {
   );
 };
 
-export default sectionThree;
+export default SectionThree;

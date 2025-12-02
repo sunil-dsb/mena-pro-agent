@@ -87,19 +87,8 @@ export default function Footer() {
         {/* Testimonial Cards */}
         <div className="flex flex-wrap justify-center gap-5 mb-10">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={testimonial.id}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              animate={
-                isInView
-                  ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: 50, scale: 0.9 }
-              }
-              transition={{
-                duration: 0.5,
-                delay: 0.5 + index * 0.1,
-                ease: "easeOut",
-              }}
               className="agent-card relative border-4 border-primary-600 rounded-2xl overflow-visible"
               style={{
                 boxShadow: `
@@ -129,7 +118,7 @@ export default function Footer() {
                   {testimonial.text}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 

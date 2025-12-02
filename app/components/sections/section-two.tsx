@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import vector from "../../../public/icons/Vector.svg";
 import actual from "../../../public/icons/Vector (1).svg";
@@ -5,6 +6,9 @@ import search from "../../../public/icons/magnifying-glass-light (1) 1.svg";
 import hand from "../../../public/icons/Vector (2).svg";
 import people from "../../../public/icons/Vector (3).svg";
 import mena_pro from "../../../public/images/mena_pro.svg";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const features = [
   {
@@ -40,20 +44,28 @@ const features = [
 ];
 
 const SectionTwo = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   return (
-    <section className="container-m3">
-      <h1 className="text-primary-800 font-bold text-center text-[35px] text-shadow-[1px_2px_2px_0px_rgba(56,78,113,45)]">
+    <section ref={ref} className="container-m3">
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="text-primary-800 font-bold text-center text-[35px] text-shadow-[1px_2px_2px_0px_rgba(56,78,113,45)] mb-3"
+      >
         Your Personal Guide to Stress-Free Property Search
-      </h1>
-      <div className="text-center">
-        <p className="text-md text-text-base-text">
-          Finding property in the UAE shouldn&apos;t mean dealing with ghosting
-          agents, outdated listings, or last-minute cancellations. That&apos;s
-        </p>
-        <p className="text-md text-text-base-text">
-          why MenaPro Agents earn their badge by consistently putting you first.
-        </p>
-      </div>
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        className="text-base text-center text-base-text font-primary max-w-3xl mx-auto opacity-85 leading-relaxed font-normal"
+      >
+        Finding property in the UAE shouldn&apos;t mean dealing with ghosting
+        agents, outdated listings, or last-minute cancellations. That&apos;s why
+        MenaPro Agents earn their badge by consistently putting you first.
+      </motion.p>
 
       <div className="flex gap-9 md:gap-9 flex-wrap sm:flex-wrap md:flex-wrap lg:flex-nowrap  mt-20 justify-around lg:justify-center radial-gradient">
         <div className="relative flex items-center justify-center">

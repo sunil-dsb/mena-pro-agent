@@ -72,31 +72,21 @@ const HowItWorks = () => {
         {/* Step Cards with Timeline */}
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 bg-transparent pt-4 md:pt-12">
           {/* Timeline Line - Desktop only */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          <div
             className="hidden lg:block absolute h-0.5 bg-primary-700 origin-left"
             style={{ top: "16px", left: "12.5%", width: "75%" }}
-          ></motion.div>
+          ></div>
 
           {/* Timeline Dots - Desktop only */}
           <div
             className="hidden lg:flex absolute justify-between"
             style={{ top: "16px", left: "12.5%", width: "75%" }}
           >
-            {steps.map((step, index) => (
-              <motion.div
+            {steps.map((step) => (
+              <div
                 key={step.id}
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.6 + index * 0.1,
-                  ease: "easeOut",
-                }}
                 className="w-4 h-4 rounded-full bg-primary-700 -translate-y-1/2"
-              ></motion.div>
+              ></div>
             ))}
           </div>
           {steps.map((step, index) => (
