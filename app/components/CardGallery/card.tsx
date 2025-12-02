@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useEffect, memo, useCallback } from "react";
-import type { CardProps, PhysicsState } from "./types";
-import { lerp } from "./utils";
+import { useRef, useEffect, memo } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import type { CardProps } from "./types";
 
 export const Card = memo<CardProps>(
   ({
@@ -17,19 +17,13 @@ export const Card = memo<CardProps>(
   }) => {
     const cardRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
-    const labelContainerRef = useRef<HTMLDivElement>(null);
-    const labelBubbleRef = useRef<HTMLDivElement>(null);
-    const requestRef = useRef<number | null>(null);
 
-    // Physics State
-    const physics = useRef<PhysicsState>({
-      targetX: 0,
-      targetY: 0,
-      currentX: 0,
-      currentY: 0,
-      targetTilt: 0,
-      currentTilt: 0,
-    });
+    // Smooth mouse following with Framer Motion
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+    const smoothX = useSpring(mouseX, { stiffness: 150, damping: 20 });
+    const smoothY = useSpring(mouseY, { stiffness: 150, damping: 20 });
+    const tilt = useSpring(0, { stiffness: 100, damping: 15 });
 
     // Video Playback
     useEffect(() => {
@@ -46,51 +40,15 @@ export const Card = memo<CardProps>(
     }, [isHovered]);
 
     // Mouse Movement
-    const handleMouseMove = useCallback(
-      (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!cardRef.current) return;
-        const rect = cardRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        physics.current.targetX = x;
-        physics.current.targetY = y;
-        physics.current.targetTilt = (x / rect.width - 0.5) * 60;
-      },
-      []
-    );
-
-    // Animation Loop
-    const animate = useCallback(() => {
-      if (!labelContainerRef.current || !labelBubbleRef.current) return;
-
-      physics.current.currentX = lerp(
-        physics.current.currentX,
-        physics.current.targetX,
-        0.12
-      );
-      physics.current.currentY = lerp(
-        physics.current.currentY,
-        physics.current.targetY,
-        0.12
-      );
-      physics.current.currentTilt = lerp(
-        physics.current.currentTilt,
-        physics.current.targetTilt,
-        0.08
-      );
-
-      labelContainerRef.current.style.transform = `translate3d(${physics.current.currentX}px, ${physics.current.currentY}px, 0)`;
-      labelBubbleRef.current.style.transform = `translate(-50%, -50%) rotate(${physics.current.currentTilt}deg)`;
-
-      requestRef.current = requestAnimationFrame(animate);
-    }, []);
-
-    useEffect(() => {
-      if (isHovered) requestRef.current = requestAnimationFrame(animate);
-      return () => {
-        if (requestRef.current) cancelAnimationFrame(requestRef.current);
-      };
-    }, [isHovered, animate]);
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!cardRef.current) return;
+      const rect = cardRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      mouseX.set(x);
+      mouseY.set(y);
+      tilt.set((x / rect.width - 0.5) * 60);
+    };
 
     const transitionClass = !animationComplete
       ? "transition-all duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
@@ -101,14 +59,14 @@ export const Card = memo<CardProps>(
     const staggerDelay = !animationComplete ? `${index * 100}ms` : "0ms";
 
     return (
-      <div
+      <motion.div
         ref={cardRef}
         onMouseEnter={() => onHover(guide.id)}
         onMouseLeave={onLeave}
         onMouseMove={handleMouseMove}
         className={`relative w-32 h-44 sm:w-40 sm:h-56 md:w-48 md:h-64 lg:w-52 lg:h-64
          rounded-2xl overflow-visible
-          border border-default cursor-none shrink-0 will-change-transform ${transitionClass}
+          border border-default shrink-0 will-change-transform ${transitionClass}
           ${
             !loaded
               ? "opacity-0 translate-y-32 scale-90 rotate-0"
@@ -153,22 +111,24 @@ export const Card = memo<CardProps>(
         </div>
 
         {/* Floating Label */}
-        <div
-          ref={labelContainerRef}
-          className="absolute top-0 left-0 pointer-events-none z-[200] will-change-transform"
-          style={{ transform: "translate3d(0,0,0)" }}
+        <motion.div
+          className="absolute top-0 left-0 pointer-events-none z-[200]"
+          style={{ x: smoothX, y: smoothY }}
         >
-          <div
-            ref={labelBubbleRef}
+          <motion.div
             className={`bg-white text-gray-900 px-3 py-1.5 rounded-full shadow-xl text-xs font-bold whitespace-nowrap border border-gray-100 transition-opacity duration-200 ease-out ${
               isHovered ? "opacity-100 scale-100" : "opacity-0 scale-50"
             }`}
-            style={{ transform: "translate(-50%, -50%)" }}
+            style={{ 
+              x: "-50%", 
+              y: "-50%",
+              rotate: tilt
+            }}
           >
             More about {guide.name}
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     );
   }
 );
