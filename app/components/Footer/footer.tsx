@@ -37,7 +37,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer ref={ref} className="relative overflow-hidden bg-gradient-to-br from-[#0a1a4a] via-[#102570] to-[#081440]">
+    <footer
+      ref={ref}
+      className="relative overflow-hidden bg-gradient-to-br from-[#0a1a4a] via-[#102570] to-[#081440]"
+    >
       {/* Background Image */}
       <div
         className="absolute inset-0"
@@ -87,8 +90,16 @@ export default function Footer() {
             <motion.div
               key={testimonial.id}
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.1, ease: "easeOut" }}
+              animate={
+                isInView
+                  ? { opacity: 1, y: 0, scale: 1 }
+                  : { opacity: 0, y: 50, scale: 0.9 }
+              }
+              transition={{
+                duration: 0.5,
+                delay: 0.5 + index * 0.1,
+                ease: "easeOut",
+              }}
               className="agent-card relative border-4 border-primary-600 rounded-2xl overflow-visible"
               style={{
                 boxShadow: `
@@ -110,8 +121,12 @@ export default function Footer() {
               </div>
 
               <div className="absolute inset-0 z-20 flex flex-col justify-end p-4">
-                <p className="text-primary text-xs opacity-95 leading-snug italic" >
-                  <span className="font-bold text-[#191B5A] mb-1 italic" > {testimonial.highlight} </span>    {testimonial.text}
+                <p className="text-primary text-xs opacity-95 leading-snug italic">
+                  <span className="font-bold text-[#191B5A] mb-1 italic">
+                    {" "}
+                    {testimonial.highlight}{" "}
+                  </span>{" "}
+                  {testimonial.text}
                 </p>
               </div>
             </motion.div>
@@ -125,6 +140,6 @@ export default function Footer() {
           </button>
         </div>
       </div>
-    </footer >
+    </footer>
   );
 }

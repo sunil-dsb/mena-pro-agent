@@ -90,7 +90,11 @@ const HowItWorks = () => {
                 key={step.id}
                 initial={{ scale: 0 }}
                 animate={isInView ? { scale: 1 } : { scale: 0 }}
-                transition={{ duration: 0.4, delay: 0.6 + index * 0.1, ease: "easeOut" }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.6 + index * 0.1,
+                  ease: "easeOut",
+                }}
                 className="w-4 h-4 rounded-full bg-primary-700 -translate-y-1/2"
               ></motion.div>
             ))}
@@ -100,7 +104,11 @@ const HowItWorks = () => {
               key={step.id}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-              transition={{ duration: 0.5, delay: 0.8 + index * 0.1, ease: "easeOut" }}
+              transition={{
+                duration: 0.5,
+                delay: 0.8 + index * 0.1,
+                ease: "easeOut",
+              }}
               className="bg-transparent rounded-lg p-6 border-[1.4px] border-active"
             >
               <h3 className="text-base font-semibold text-primary-800 font-primary mb-4">
