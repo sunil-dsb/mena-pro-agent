@@ -290,6 +290,31 @@ body {
   pointer-events: none;
 }
 
+.radial-gradient {
+  background: radial-gradient(42% 43% at center, #0b53c454 0%, #0612cd00 100%);
+}
+
+.shadows {
+ box-shadow:
+    -772px -294px 231px 0px rgba(25, 27, 90, 0),
+    -494px -188px 211px 0px rgba(25, 27, 90, 2),
+    -278px -106px 178px 0px rgba(25, 27, 90, 7),
+    -123px -47px 132px 0px rgba(25, 27, 90, 12),
+    -31px -12px 73px 0px rgba(25, 27, 90, 14);
+}
+
+/* Material 3 responsive breakpoints */
+@media (max-width: 599px) {
+  /* Compact (0-599dp) */
+  .grid-m3 {
+    gap: 1rem;
+  }
+  .container-m3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .agent-card-text {
   padding: 12px 14px;
   height: 45%;
