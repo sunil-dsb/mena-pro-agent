@@ -55,7 +55,7 @@ const SectionTwo = () => {
         </p>
       </div>
 
-      <div className="flex gap-5 md:gap-0 flex-wrap sm:flex-wrap md:flex-wrap lg:flex-nowrap  mt-20 justify-around lg:justify-center radial-gradient">
+      <div className="flex gap-9 md:gap-9 flex-wrap sm:flex-wrap md:flex-wrap lg:flex-nowrap  mt-20 justify-around lg:justify-center radial-gradient">
         <div className="relative flex items-center justify-center">
           <div className="w-[230px] md:w-[220px] lg:w-[230px] rounded-3xl overflow-hidden shadow-2xl border-2 border-base mr-0 lg:-mr-24 z-10">
             <Image
@@ -67,7 +67,7 @@ const SectionTwo = () => {
             />
           </div>
 
-          <div className="w-[300] md:w-[250px] left-[25px] -bottom-5 absolute flex items-center justify-center rounded-tl-3xl rounded-br-3xl rounded-bl-sm rounded-tr-sm z-20">
+          <div className="w-60 md:w-[250px] left-[50px] md:left-[25px] bottom-[-50px] md:-bottom-5 absolute flex items-center justify-center rounded-tl-3xl rounded-br-3xl rounded-bl-sm rounded-tr-sm z-20">
             <Image
               src={mena_pro}
               alt="logo"
