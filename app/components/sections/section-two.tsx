@@ -1,11 +1,10 @@
 import Image from "next/image";
-import React from "react";
 import vector from "../../../public/icons/Vector.svg";
 import actual from "../../../public/icons/Vector (1).svg";
 import search from "../../../public/icons/magnifying-glass-light (1) 1.svg";
 import hand from "../../../public/icons/Vector (2).svg";
 import people from "../../../public/icons/Vector (3).svg";
-import logo from "../../../public/icons/Mena-logo.png";
+import mena_pro from "../../../public/images/mena_pro.svg";
 
 const features = [
   {
@@ -42,7 +41,7 @@ const features = [
 
 const SectionTwo = () => {
   return (
-    <section className="my-56 max-w-5xl mx-auto container-m3">
+    <section className="container-m3">
       <h1 className="text-primary-800 font-bold text-center text-[35px] text-shadow-[1px_2px_2px_0px_rgba(56,78,113,45)]">
         Your Personal Guide to Stress-Free Property Search
       </h1>
@@ -56,73 +55,72 @@ const SectionTwo = () => {
         </p>
       </div>
 
-      <div className="mt-20 flex flex-col lg:flex-row items-start gap-16 relative">
-        {/* Left Image + Badge */}
-        <div className="relative">
-          <div className="w-[270px] md:w-80 lg:w-[270px] rounded-3xl overflow-hidden shadow-2xl border-2 border-base">
+      <div className="flex gap-5 md:gap-0 flex-wrap sm:flex-wrap md:flex-wrap lg:flex-nowrap  mt-20 justify-around lg:justify-center radial-gradient">
+        <div className="relative flex items-center justify-center">
+          <div className="w-[230px] md:w-[220px] lg:w-[230px] rounded-3xl overflow-hidden shadow-2xl border-2 border-base mr-0 lg:-mr-24 z-10">
             <Image
               src="/images/08.webp"
               alt="MenaPro Agent"
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover shadows"
               width={100}
               height={100}
             />
           </div>
 
-          {/* MENA PRO Badge */}
-          <div className="w-[250px] h-[100px] right-[-30px] -bottom-8 absolute bg-primary-800 flex items-center justify-center rounded-tl-3xl rounded-br-3xl rounded-bl-sm rounded-tr-sm shadow-xl">
+          <div className="w-[300] md:w-[250px] left-[25px] -bottom-5 absolute flex items-center justify-center rounded-tl-3xl rounded-br-3xl rounded-bl-sm rounded-tr-sm z-20">
             <Image
-              src={logo}
-              width={150}
-              height={150}
+              src={mena_pro}
               alt="logo"
-              className="object-cover"
+              className="object-cover w-full h-full"
             />
           </div>
         </div>
+        <div className="flex flex-col gap-4">
+          {features.map((feature, index) => {
+            const isLast = index === features.length - 1;
 
-        <div className="flex-1 relative">
-          <div className="absolute inset-0 pointer-events-none rounded-2xl -z-10" />
+            return (
+              <div
+                key={feature.title}
+                className="flex items-start sm:justify-center justify-end gap-6 relative"
+              >
+                <div className="flex items-start gap-1">
+                  <div
+                    className={`
+            w-80 h-8 bg-transparent border-t-3
+            ${isLast ? "border-l-0" : "border-l-3"}
+            border-[#81c5fb] rounded-tl-3xl relative top-6 hidden lg:flex
+          `}
+                  >
+                    <div className="absolute w-3 h-3 bg-primary-300 right-0 rounded-full -top-2"></div>
+                  </div>
 
-          <div className="space-y-4 relative">
-            <div>
-              {features.map((feature, index) => (
-                <>
-                  <div>
-                    <div
-                      key={index}
-                      className="relative flex items-start gap-4"
-                    >
-                      <div className="relative">
-                        <div className="w-12 h-12 flex items-center justify-center rounded-full bg-base-white">
-                          <Image
-                            src={feature.icon}
-                            width={22}
-                            height={22}
-                            alt={feature.title}
-                            className="object-contain"
-                          />
-                        </div>
-                      </div>
-
-                      {/* Text Content */}
-                      <div className="max-w-md">
-                        <h3 className="text-base-text text-xl font-bold">
-                          {feature.title}
-                        </h3>
-                        <p className="text-base-text text-base leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </div>
+                  <div className="relative">
+                    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary-100">
+                      <Image
+                        src={feature.icon}
+                        width={22}
+                        height={22}
+                        alt={feature.title}
+                        className="object-contain"
+                      />
                     </div>
                   </div>
-                </>
-              ))}
-            </div>
-          </div>
+                </div>
+
+                <div className="max-w-md">
+                  <h3 className="text-base-text text-xl font-bold">
+                    {feature.title}
+                  </h3>
+                  <p className="text-base-text text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-
       <div className="text-center mt-16">
         <p className="text-bg-base-black text-xl md:text-2xl font-semibold">
           Some agents just do it right.
